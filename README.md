@@ -33,7 +33,6 @@
 ---
 
 ### 1. Halaman Login Nana
-![Login Page](screenshots/login.png)
 
 **Penjelasan Kode:**
 ```dart
@@ -86,7 +85,6 @@ class _LoginPageState extends State<LoginPage> {
 ---
 
 ### 2. Halaman Registrasi Nana
-![Registrasi Page](screenshots/registrasi.png)
 
 **Penjelasan Kode:**
 ```dart
@@ -143,7 +141,6 @@ class _RegistrasiPageState extends State<RegistrasiPage> {
 ---
 
 ### 3. Halaman List Produk Nana
-![List Produk Page](screenshots/list_produk.png)
 
 **Penjelasan Kode:**
 ```dart
@@ -207,7 +204,6 @@ class _ProdukPageState extends State<ProdukPage> {
 ---
 
 ### 4. Halaman Tambah Produk Nana
-![Tambah Produk Page](screenshots/tambah_produk.png)
 
 **Penjelasan Kode:**
 ```dart
@@ -260,7 +256,6 @@ class _ProdukFormState extends State<ProdukForm> {
 ---
 
 ### 5. Halaman Detail Produk Nana
-![Detail Produk Page](screenshots/detail_produk.png)
 
 **Penjelasan Kode:**
 ```dart
@@ -378,7 +373,6 @@ class Login {
   factory Login.fromJson(Map<String, dynamic> obj) {
     if (obj['code'] == 200) {
       return Login(
-        code: obj['code'],
         status: obj['status'],
         token: obj['data']['token'],
         userID: int.parse(obj['data']['user']['id']),
