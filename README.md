@@ -2,148 +2,97 @@
 
 **TUGAS 8 - PERTEMUAN 10**
 
-* **Nama:** Fina Julianti  
-* **NIM:** H1D023119  
-* **Shift:** E  
-* **Program Studi:** Informatika  
-* **Universitas:** Universitas Jenderal Soedirman  
-* **Mata Kuliah:** Pemrograman Mobile  
+**Nama:** Fina Julianti  
+**NIM:** H1D023119  
+**Shift:** E  
+**Program Studi:** Informatika  
+**Universitas:** Universitas Jenderal Soedirman  
+**Mata Kuliah:** Pemrograman Mobile
 
----
-
-## Deskripsi
-Aplikasi manajemen produk sederhana menggunakan Flutter dengan fitur Login, Registrasi, dan CRUD (Create, Read, Update, Delete) Produk. Aplikasi ini dirancang untuk memenuhi tugas pertemuan 10 dengan implementasi antarmuka pengguna (UI) yang lengkap.
+**Deskripsi:** Aplikasi manajemen produk sederhana menggunakan Flutter dengan fitur Login, Registrasi, dan CRUD Produk.
 
 ---
 
 ## Fitur Aplikasi
-
-1. **Login** — Halaman autentikasi pengguna  
-2. **Registrasi** — Membuat akun baru  
-3. **List Produk** — Menampilkan daftar produk  
-4. **Tambah Produk** — Input data produk  
-5. **Detail Produk** — Menampilkan detail produk  
-6. **Edit Produk** — Mengubah data produk  
-7. **Hapus Produk** — Menghapus produk  
-
----
-
-## 📸 Screenshot Aplikasi
-
-### 1. Autentikasi (Login & Register)
-| Login Page | Alert Login (Empty) |
-| :---: | :---: |
-| ![Login Page](screenshots/login.png) | ![Login Alert](screenshots/login alert tidak diisi field.png) |
-
-| Register Page | Alert Register (Empty) |
-| :---: | :---: |
-| ![Register Page](screenshots/register.png) | ![Register Alert](screenshots/register alert tidak diisi field.png) |
-
-### 2. Manajemen Produk (CRUD)
-| List Produk | Sidebar / Logout |
-| :---: | :---: |
-| ![List Produk](screenshots/list produk.png) | ![Sidebar Logout](screenshots/sidebar logout.png) |
-
-| Tambah Produk | Alert Tambah (Empty) |
-| :---: | :---: |
-| ![Tambah Produk](screenshots/tambah produk.png) | ![Alert Tambah](screenshots/tambah produk tidak diisi field.png) |
-
-| Detail Produk | Ubah Produk | Hapus Produk |
-| :---: | :---: | :---: |
-| ![Detail Produk](screenshots/detail produk.png) | ![Ubah Produk](screenshots/ubah produk.png) | ![Hapus Produk](screenshots/hapus produk.png) |
+1. Login  
+2. Registrasi  
+3. List Produk  
+4. Tambah Produk  
+5. Detail Produk  
+6. Edit Produk  
+7. Hapus Produk  
 
 ---
 
-## Penjelasan Kode
+## Screenshot Aplikasi  
 
-### 1. Halaman Login Nana
+Berikut daftar file screenshot beserta linknya:
 
-**Penjelasan Kode:**
-```dart
-class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key}) : super(key: key);
-  @override
-  _LoginPageState createState() => _LoginPageState();
-}
-...
-```
+### 1. Halaman Login  
+<a href="screenshots/login.png">screenshots/login.png</a>
 
-**Komponen Utama:**
-- GlobalKey<FormState>
-- TextEditingController
-- TextFormField
-- ElevatedButton
-- InkWell
+### 2. Halaman Registrasi  
+<a href="screenshots/register.png">screenshots/register.png</a>
 
----
+### 3. Halaman List Produk  
+<a href="screenshots/list produk.png">screenshots/list produk.png</a>
 
-### 2. Halaman Registrasi Nana
+### 4. Halaman Tambah Produk  
+<a href="screenshots/tambah produk.png">screenshots/tambah produk.png</a>
 
-**Penjelasan Kode:**
-```dart
-class RegistrasiPage extends StatefulWidget {
-  ...
-}
-```
+### 5. Halaman Ubah Produk  
+<a href="screenshots/ubah produk.png">screenshots/ubah produk.png</a>
 
-**Validasi Input:**
-- Nama minimal 3 karakter  
-- Email valid  
-- Password minimal 6 karakter  
-- Konfirmasi password sama  
+### 6. Halaman Detail Produk  
+<a href="screenshots/detail produk.png">screenshots/detail produk.png</a>
 
----
+### 7. Halaman Hapus Produk  
+<a href="screenshots/hapus produk.png">screenshots/hapus produk.png</a>
 
-### 3. Halaman List Produk Nana
+### 8. Sidebar Logout  
+<a href="screenshots/sidebar logout.png">screenshots/sidebar logout.png</a>
 
-**Penjelasan Kode:**
-```dart
-class ProdukPage extends StatefulWidget {
-  ...
-}
-```
+### 9. Alert Login Tidak Diisi Field  
+<a href="screenshots/login alert tidak diisi field.png">screenshots/login alert tidak diisi field.png</a>
 
-**Komponen Utama:**
-- AppBar
-- Drawer / Logout
-- ListView + ItemProduk
+### 10. Alert Registrasi Tidak Diisi Field  
+<a href="screenshots/register alert tidak diisi field.png">screenshots/register alert tidak diisi field.png</a>
+
+### 11. Alert Tambah Produk Tidak Diisi Field  
+<a href="screenshots/tambah produk tidak diisi field.png">screenshots/tambah produk tidak diisi field.png</a>
 
 ---
 
-### 4. Halaman Tambah Produk Nana
-
-**Penjelasan Kode:**
-```dart
-class ProdukForm extends StatefulWidget {
-  ...
-}
-```
-
-**Fungsi `isUpdate()`** menentukan mode TAMBAH atau EDIT.
-
----
-
-### 5. Halaman Detail Produk Nana
-
-**Penjelasan Kode:**
-```dart
-class ProdukDetail extends StatefulWidget {
-  ...
-}
-```
-
-Menampilkan detail informasi produk + tombol Edit & Delete.
-
----
-
-## Struktur Model
+## Struktur Model + Penjelasan Kode
 
 ### Model Produk
 ```dart
 class Produk {
-  ...
+  int? id;
+  String? kodeProduk;
+  String? namaProduk;
+  int? hargaProduk;
+
+  Produk({this.id, this.kodeProduk, this.namaProduk, this.hargaProduk});
+
+  factory Produk.fromJson(Map<String, dynamic> obj) {
+    return Produk(
+      id: obj['id'],
+      kodeProduk: obj['kode_produk'],
+      namaProduk: obj['nama_produk'],
+      hargaProduk: obj['harga'],
+    );
+  }
 }
 ```
+**Penjelasan:**
+- `id` → ID produk dalam database  
+- `kodeProduk` → Kode unik barang  
+- `namaProduk` → Nama produk  
+- `hargaProduk` → Harga produk  
+- `factory Produk.fromJson()` mengambil data json dari response API kemudian memetakannya ke class Produk
+
+---
 
 ### Model Login
 ```dart
@@ -159,6 +108,7 @@ class Login {
   factory Login.fromJson(Map<String, dynamic> obj) {
     if (obj['code'] == 200) {
       return Login(
+        code: obj['code'],
         status: obj['status'],
         token: obj['data']['token'],
         userID: int.parse(obj['data']['user']['id']),
@@ -170,12 +120,19 @@ class Login {
   }
 }
 ```
+**Penjelasan:**
+- `code == 200` → login sukses  
+- token disimpan untuk autentikasi API  
+- `userEmail` & `userID` diambil dari data user  
+
+---
 
 ### Model Registrasi
 ```dart
 class Registrasi {
   int? code;
   bool? status;
+  String? data;
 
   Registrasi({this.code, this.status, this.data});
 
@@ -188,96 +145,223 @@ class Registrasi {
   }
 }
 ```
+**Penjelasan:**
+- Digunakan untuk response saat registrasi  
+- Jika berhasil, `status = true`
 
 ---
 
-# 📂 Struktur Folder Project
+## Kode Login Page + Penjelasan
+```dart
+class LoginPage extends StatefulWidget {
+  const LoginPage({Key? key}) : super(key: key);
+  @override
+  _LoginPageState createState() => _LoginPageState();
+}
 
+class _LoginPageState extends State<LoginPage> {
+  final _formKey = GlobalKey<FormState>();
+  final _emailTextboxController = TextEditingController();
+  final _passwordTextboxController = TextEditingController();
 ```
-lib/
-│
-├── model/
-│   ├── produk.dart
-│   ├── login.dart
-│   └── registrasi.dart
-│
-├── ui/
-│   ├── login_page.dart
-│   ├── registrasi_page.dart
-│   ├── produk_page.dart
-│   ├── produk_form.dart
-│   ├── produk_detail.dart
-│   ├── item_produk.dart
-│
-└── main.dart
+**Penjelasan:**
+- `TextEditingController()` berfungsi mengambil input user  
+- `_formKey` dipakai untuk validasi form login  
+
+```dart
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Login Nana"),
+      ),
 ```
+**Penjelasan:**
+- Mengubah title AppBar menjadi “Login Nana” sesuai instruksi dosen  
+
+```dart
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Form(
+            key: _formKey,
+            child: Column(
+              children: [
+                _emailTextField(),
+                _passwordTextField(),
+                _buttonLogin(),
+                const SizedBox(height: 30),
+                _menuRegistrasi(),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+```
+**Penjelasan:**
+- `_emailTextField()` membuat input email  
+- `_passwordTextField()` membuat input password  
+- `_buttonLogin()` membuat tombol login  
+- `_menuRegistrasi()` navigasi menuju halaman daftar  
 
 ---
 
-# 🛠 Teknologi yang Digunakan
+## Kode Registrasi + Penjelasan
+```dart
+class RegistrasiPage extends StatefulWidget {
+  const RegistrasiPage({Key? key}) : super(key: key);
 
-- Flutter  
-- Dart  
-- Material UI  
-- Stateful Widget  
+  @override
+  _RegistrasiPageState createState() => _RegistrasiPageState();
+}
+```
+
+```dart
+class _RegistrasiPageState extends State<RegistrasiPage> {
+  final _formKey = GlobalKey<FormState>();
+  final _namaTextboxController = TextEditingController();
+  final _emailTextboxController = TextEditingController();
+  final _passwordTextboxController = TextEditingController();
+```
+**Penjelasan:**
+- Input tambahan: `Nama`  
+- Tambahan juga `password konfirmasi`
+
+```dart
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Registrasi Nana"),
+      ),
+```
+
+```dart
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Form(
+            key: _formKey,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                _namaTextField(),
+                _emailTextField(),
+                _passwordTextField(),
+                _passwordKonfirmasiTextField(),
+                _buttonRegistrasi(),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+```
+**Penjelasan:**
+- Menambahkan validasi minimal huruf  
+- Cek password == konfirmasi password  
 
 ---
 
-# 🚀 Cara Menjalankan Aplikasi
+## Kode Form Tambah/Ubah Produk + Penjelasan
+```dart
+class ProdukForm extends StatefulWidget {
+  final Produk? produk;
+  const ProdukForm({Key? key, this.produk}) : super(key: key);
+  @override
+  _ProdukFormState createState() => _ProdukFormState();
+}
+```
+**Penjelasan:**
+- Jika `produk != null` berarti halaman ubah  
+- Jika `produk == null` berarti tambah  
 
-### 1. Clone repository
-```bash
-git clone https://github.com/yourusername/toko-kita.git
+```dart
+class _ProdukFormState extends State<ProdukForm> {
+  final _formKey = GlobalKey<FormState>();
+  String judul = "TAMBAH PRODUK";
+  String tombolSubmit = "SIMPAN";
 ```
 
-### 2. Masuk ke folder project
-```bash
-cd toko-kita
+```dart
+  @override
+  void initState() {
+    super.initState();
+    isUpdate();
+  }
 ```
 
-### 3. Install dependency
-```bash
-flutter pub get
+```dart
+  isUpdate() {
+    if (widget.produk != null) {
+      setState(() {
+        judul = "UBAH PRODUK Nana";
+        tombolSubmit = "UBAH";
+        _kodeProdukTextboxController.text = widget.produk!.kodeProduk!;
+        _namaProdukTextboxController.text = widget.produk!.namaProduk!;
+        _hargaProdukTextboxController.text = widget.produk!.hargaProduk.toString();
+      });
+    } else {
+      judul = "TAMBAH PRODUK Nana";
+      tombolSubmit = "SIMPAN";
+    }
+  }
+}
 ```
 
-### 4. Running di emulator / device
-```bash
-flutter run
-```
+**Penjelasan:**
+- ketika edit, form terisi otomatis  
+- text tombol berubah dari SIMPAN → UBAH  
+- judul AppBar berubah sesuai  
 
 ---
-## 📝 Catatan Perubahan
 
-### Modifikasi yang Dilakukan:
-1. ✅ Menambahkan nama "Nana" pada setiap AppBar:
-   - Login Nana
-   - Registrasi Nana
-   - List Produk Nana
-   - Tambah Produk Nana / Ubah Produk Nana
-   - Detail Produk Nana
+## 🧩 Kode Detail Produk + Penjelasan
+```dart
+class ProdukDetail extends StatefulWidget {
+  final Produk? produk;
+  const ProdukDetail({Key? key, this.produk}) : super(key: key);
+  @override
+  _ProdukDetailState createState() => _ProdukDetailState();
+}
+```
+**Penjelasan:**
+- `produk` diterima dari layar sebelumnya  
 
-2. ✅ Memperbaiki kode dengan menghapus variabel yang tidak digunakan:
-   - Removed `_isLoading` field dari login_page, registrasi_page, dan produk_form
-   - Removed unused `validate` variable
+```dart
+  Widget _tombolHapusEdit() {
+    return Row(
+      children: [
+        OutlinedButton(
+          child: const Text("EDIT"),
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => ProdukForm(produk: widget.produk!)),
+            );
+          },
+        ),
+```
+**Penjelasan:**
+- pindah ke halaman edit produk  
 
-3. ✅ Implementasi UI lengkap sesuai modul pertemuan 10
+```dart
+        OutlinedButton(
+          child: const Text("DELETE"),
+          onPressed: () => confirmHapus(),
+        ),
+      ],
+    );
+  }
+```
+**Penjelasan:**
+- menampilkan konfirmasi hapus  
 
 ---
 
-## 🎯 Teknologi yang Digunakan
 
-- **Flutter SDK**: ^3.9.2
-- **Dart**: ^3.9.2
-- **Material Design**: Untuk UI Components
-
----
-
-## 👤 Author
-
-**Fina Julianti**  
-NIM: H1D023119  
-Shift: E  
-Tugas 8 - Pertemuan 10  
-Program Studi Informatika  
-Universitas Jenderal Soedirman  
-Mata Kuliah: Pemrograman Mobile
