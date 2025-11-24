@@ -321,7 +321,7 @@ class _ProdukFormState extends State<ProdukForm> {
 
 ---
 
-## 🧩 Kode Detail Produk + Penjelasan
+## Kode Detail Produk + Penjelasan
 ```dart
 class ProdukDetail extends StatefulWidget {
   final Produk? produk;
