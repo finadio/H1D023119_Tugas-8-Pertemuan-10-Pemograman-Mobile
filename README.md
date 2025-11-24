@@ -29,37 +29,37 @@
 Berikut daftar file screenshot beserta linknya:
 
 ### 1. Halaman Login  
-<a href="screenshots/login.png">screenshots/login.png</a>
+![Login](screenshots/login.png)
 
 ### 2. Halaman Registrasi  
-<a href="screenshots/register.png">screenshots/register.png</a>
+![Register](screenshots/register.png)
 
 ### 3. Halaman List Produk  
-<a href="screenshots/list produk.png">screenshots/list produk.png</a>
+![List Produk](screenshots/list produk.png)
 
 ### 4. Halaman Tambah Produk  
-<a href="screenshots/tambah produk.png">screenshots/tambah produk.png</a>
+![Tambah Produk](screenshots/tambah produk.png)
 
 ### 5. Halaman Ubah Produk  
-<a href="screenshots/ubah produk.png">screenshots/ubah produk.png</a>
+![Ubah Produk](screenshots/ubah produk.png)
 
 ### 6. Halaman Detail Produk  
-<a href="screenshots/detail produk.png">screenshots/detail produk.png</a>
+![Detail Produk](screenshots/detail produk.png)
 
 ### 7. Halaman Hapus Produk  
-<a href="screenshots/hapus produk.png">screenshots/hapus produk.png</a>
+![Hapus Produk](screenshots/hapus produk.png)
 
 ### 8. Sidebar Logout  
-<a href="screenshots/sidebar logout.png">screenshots/sidebar logout.png</a>
+![Sidebar Logout](screenshots/sidebar logout.png)
 
 ### 9. Alert Login Tidak Diisi Field  
-<a href="screenshots/login alert tidak diisi field.png">screenshots/login alert tidak diisi field.png</a>
+![Login Alert](screenshots/login alert tidak diisi field.png)
 
 ### 10. Alert Registrasi Tidak Diisi Field  
-<a href="screenshots/register alert tidak diisi field.png">screenshots/register alert tidak diisi field.png</a>
+![Register Alert](screenshots/register alert tidak diisi field.png)
 
 ### 11. Alert Tambah Produk Tidak Diisi Field  
-<a href="screenshots/tambah produk tidak diisi field.png">screenshots/tambah produk tidak diisi field.png</a>
+![Tambah Produk Alert](screenshots/tambah produk tidak diisi field.png)
 
 ---
 
