@@ -27,12 +27,44 @@
 
 ## 📸 Screenshot Aplikasi
 
+
 ### 🎥 Demo Aplikasi
 > Tambahkan link video demo aplikasi di sini (jika ada)
 
 ---
 
-### 1. Halaman Login Nana
+### 1. Halaman Login
+![Login Page](screenshots/login.png)
+
+### 2. Halaman Registrasi
+![Registrasi Page](screenshots/register.png)
+
+### 3. Halaman List Produk
+![List Produk Page](screenshots/list produk.png)
+
+### 4. Halaman Tambah Produk
+![Tambah Produk Page](screenshots/tambah produk.png)
+
+### 5. Halaman Ubah Produk
+![Ubah Produk Page](screenshots/ubah produk.png)
+
+### 6. Halaman Detail Produk
+![Detail Produk Page](screenshots/detail produk.png)
+
+### 7. Halaman Hapus Produk
+![Hapus Produk Page](screenshots/hapus produk.png)
+
+### 8. Sidebar Logout
+![Sidebar Logout](screenshots/sidebar logout.png)
+
+### 9. Alert Login Tidak Diisi Field
+![Login Alert](screenshots/login alert tidak diisi field.png)
+
+### 10. Alert Registrasi Tidak Diisi Field
+![Register Alert](screenshots/register alert tidak diisi field.png)
+
+### 11. Alert Tambah Produk Tidak Diisi Field
+![Tambah Produk Alert](screenshots/tambah produk tidak diisi field.png)
 
 **Penjelasan Kode:**
 ```dart
@@ -85,6 +117,7 @@ class _LoginPageState extends State<LoginPage> {
 ---
 
 ### 2. Halaman Registrasi Nana
+![Registrasi Page](screenshots/registrasi.png)
 
 **Penjelasan Kode:**
 ```dart
@@ -141,6 +174,7 @@ class _RegistrasiPageState extends State<RegistrasiPage> {
 ---
 
 ### 3. Halaman List Produk Nana
+![List Produk Page](screenshots/list_produk.png)
 
 **Penjelasan Kode:**
 ```dart
@@ -204,6 +238,7 @@ class _ProdukPageState extends State<ProdukPage> {
 ---
 
 ### 4. Halaman Tambah Produk Nana
+![Tambah Produk Page](screenshots/tambah_produk.png)
 
 **Penjelasan Kode:**
 ```dart
@@ -256,6 +291,7 @@ class _ProdukFormState extends State<ProdukForm> {
 ---
 
 ### 5. Halaman Detail Produk Nana
+![Detail Produk Page](screenshots/detail_produk.png)
 
 **Penjelasan Kode:**
 ```dart
@@ -373,6 +409,7 @@ class Login {
   factory Login.fromJson(Map<String, dynamic> obj) {
     if (obj['code'] == 200) {
       return Login(
+        code: obj['code'],
         status: obj['status'],
         token: obj['data']['token'],
         userID: int.parse(obj['data']['user']['id']),
@@ -390,6 +427,7 @@ class Login {
 class Registrasi {
   int? code;
   bool? status;
+  String? data;
 
   Registrasi({this.code, this.status, this.data});
 
@@ -424,6 +462,7 @@ class Registrasi {
    ```
 
 ---
+
 ## 📝 Catatan Perubahan
 
 ### Modifikasi yang Dilakukan:
