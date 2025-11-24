@@ -32,34 +32,34 @@ Berikut daftar file screenshot beserta linknya:
 ![Login](screenshots/login.png)
 
 ### 2. Halaman Registrasi  
-![Register](screenshots/register.png)
+![Registrasi](screenshots/register.png)
 
 ### 3. Halaman List Produk  
-![List Produk](screenshots/list produk.png)
+![List Produk](screenshots/listproduk.png)
 
 ### 4. Halaman Tambah Produk  
-![Tambah Produk](screenshots/tambah produk.png)
+![Tambah Produk](screenshots/tambahproduk.png)
 
 ### 5. Halaman Ubah Produk  
-![Ubah Produk](screenshots/ubah produk.png)
+![Ubah Produk](screenshots/ubahproduk.png)
 
 ### 6. Halaman Detail Produk  
-![Detail Produk](screenshots/detail produk.png)
+![Detail Produk](screenshots/detailproduk.png)
 
 ### 7. Halaman Hapus Produk  
-![Hapus Produk](screenshots/hapus produk.png)
+![Hapus Produk](screenshots/hapusproduk.png)
 
 ### 8. Sidebar Logout  
-![Sidebar Logout](screenshots/sidebar logout.png)
+![Sidebar Logout](screenshots/sidebarlogout.png)
 
 ### 9. Alert Login Tidak Diisi Field  
-![Login Alert](screenshots/login alert tidak diisi field.png)
+![Login Alert](screenshots/loginalerttidakdiisifield.png)
 
 ### 10. Alert Registrasi Tidak Diisi Field  
-![Register Alert](screenshots/register alert tidak diisi field.png)
+![Register Alert](screenshots/registeralerttidakdiisifield.png)
 
 ### 11. Alert Tambah Produk Tidak Diisi Field  
-![Tambah Produk Alert](screenshots/tambah produk tidak diisi field.png)
+![Tambah Produk Alert](screenshots/tambahproduktidakdiisifield.png)
 
 ---
 
