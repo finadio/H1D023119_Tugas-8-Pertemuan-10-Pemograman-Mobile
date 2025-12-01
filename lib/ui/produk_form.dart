@@ -1,12 +1,14 @@
-// ui/produk_form.dart
 import 'package:flutter/material.dart';
+import 'package:tokokita/bloc/produk_bloc.dart';
 import 'package:tokokita/model/produk.dart';
+import 'package:tokokita/ui/produk_page.dart';
+import 'package:tokokita/widget/warning_dialog.dart';
 
 class ProdukForm extends StatefulWidget {
   final Produk? produk;
-  const ProdukForm({Key? key, this.produk}) : super(key: key);
+  const ProdukForm({super.key, this.produk});
   @override
-  _ProdukFormState createState() => _ProdukFormState();
+  State<ProdukForm> createState() => _ProdukFormState();
 }
 
 class _ProdukFormState extends State<ProdukForm> {
@@ -27,6 +29,7 @@ class _ProdukFormState extends State<ProdukForm> {
   isUpdate() {
     if (widget.produk != null) {
       setState(() {
+        // MODIFIKASI: Menambahkan nama Nana saat Edit
         judul = "UBAH PRODUK Nana";
         tombolSubmit = "UBAH";
         _kodeProdukTextboxController.text = widget.produk!.kodeProduk!;
@@ -35,6 +38,7 @@ class _ProdukFormState extends State<ProdukForm> {
             .toString();
       });
     } else {
+      // MODIFIKASI: Menambahkan nama Nana saat Tambah Baru
       judul = "TAMBAH PRODUK Nana";
       tombolSubmit = "SIMPAN";
     }
@@ -46,17 +50,14 @@ class _ProdukFormState extends State<ProdukForm> {
       appBar: AppBar(title: Text(judul)),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(8.0),
           child: Form(
             key: _formKey,
             child: Column(
               children: [
                 _kodeProdukTextField(),
-                const SizedBox(height: 12),
                 _namaProdukTextField(),
-                const SizedBox(height: 12),
                 _hargaProdukTextField(),
-                const SizedBox(height: 20),
                 _buttonSubmit(),
               ],
             ),
@@ -68,10 +69,7 @@ class _ProdukFormState extends State<ProdukForm> {
 
   Widget _kodeProdukTextField() {
     return TextFormField(
-      decoration: const InputDecoration(
-        labelText: "Kode Produk",
-        border: OutlineInputBorder(),
-      ),
+      decoration: const InputDecoration(labelText: "Kode Produk"),
       keyboardType: TextInputType.text,
       controller: _kodeProdukTextboxController,
       validator: (value) {
@@ -85,10 +83,7 @@ class _ProdukFormState extends State<ProdukForm> {
 
   Widget _namaProdukTextField() {
     return TextFormField(
-      decoration: const InputDecoration(
-        labelText: "Nama Produk",
-        border: OutlineInputBorder(),
-      ),
+      decoration: const InputDecoration(labelText: "Nama Produk"),
       keyboardType: TextInputType.text,
       controller: _namaProdukTextboxController,
       validator: (value) {
@@ -102,10 +97,7 @@ class _ProdukFormState extends State<ProdukForm> {
 
   Widget _hargaProdukTextField() {
     return TextFormField(
-      decoration: const InputDecoration(
-        labelText: "Harga",
-        border: OutlineInputBorder(),
-      ),
+      decoration: const InputDecoration(labelText: "Harga"),
       keyboardType: TextInputType.number,
       controller: _hargaProdukTextboxController,
       validator: (value) {
@@ -117,20 +109,75 @@ class _ProdukFormState extends State<ProdukForm> {
     );
   }
 
+  bool _isLoading = false;
+
   Widget _buttonSubmit() {
-    return ElevatedButton(
+    return OutlinedButton(
       child: Text(tombolSubmit),
       onPressed: () {
-        if (_formKey.currentState!.validate()) {
-          Produk produk = Produk(
-            id: widget.produk?.id ?? DateTime.now().millisecondsSinceEpoch,
-            kodeProduk: _kodeProdukTextboxController.text,
-            namaProduk: _namaProdukTextboxController.text,
-            hargaProduk: int.parse(_hargaProdukTextboxController.text),
-          );
-          Navigator.pop(context, produk);
+        var validate = _formKey.currentState!.validate();
+        if (validate) {
+          if (!_isLoading) {
+            if (widget.produk != null) {
+              //kondisi update produk
+              _ubah();
+            } else {
+              //kondisi tambah produk
+              _simpan();
+            }
+          }
         }
       },
     );
+  }
+
+  void _simpan() {
+    setState(() {
+      _isLoading = true;
+    });
+    Produk createProduk = Produk(id: null);
+    createProduk.kodeProduk = _kodeProdukTextboxController.text;
+    createProduk.namaProduk = _namaProdukTextboxController.text;
+    createProduk.hargaProduk = int.parse(_hargaProdukTextboxController.text);
+    ProdukBloc.addProduk(produk: createProduk).then((value) {
+      if (!mounted) return;
+      Navigator.of(context).push(MaterialPageRoute(
+          builder: (BuildContext context) => const ProdukPage()));
+    }, onError: (error) {
+      if (!mounted) return;
+      showDialog(
+          context: context,
+          builder: (BuildContext context) => const WarningDialog(
+                description: "Simpan gagal, silahkan coba lagi",
+              ));
+    });
+    setState(() {
+      _isLoading = false;
+    });
+  }
+
+  void _ubah() {
+    setState(() {
+      _isLoading = true;
+    });
+    Produk updateProduk = Produk(id: widget.produk!.id!);
+    updateProduk.kodeProduk = _kodeProdukTextboxController.text;
+    updateProduk.namaProduk = _namaProdukTextboxController.text;
+    updateProduk.hargaProduk = int.parse(_hargaProdukTextboxController.text);
+    ProdukBloc.updateProduk(produk: updateProduk).then((value) {
+      if (!mounted) return;
+      Navigator.of(context).push(MaterialPageRoute(
+          builder: (BuildContext context) => const ProdukPage()));
+    }, onError: (error) {
+      if (!mounted) return;
+      showDialog(
+          context: context,
+          builder: (BuildContext context) => const WarningDialog(
+                description: "Permintaan ubah data gagal, silahkan coba lagi",
+              ));
+    });
+    setState(() {
+      _isLoading = false;
+    });
   }
 }

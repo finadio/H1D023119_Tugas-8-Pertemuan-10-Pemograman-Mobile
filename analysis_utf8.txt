@@ -1,0 +1,52 @@
+﻿Analyzing tokokita...                                           
+
+  error - The argument type 'int' can't be assigned to the parameter type 'String'.  - lib\bloc\produk_bloc.dart:34:51 - argument_type_not_assignable
+   info - Don't invoke 'print' in production code - lib\bloc\produk_bloc.dart:35:5 - avoid_print
+   info - Don't invoke 'print' in production code - lib\bloc\produk_bloc.dart:42:5 - avoid_print
+   info - An uninitialized variable should have an explicit type annotation - lib\helpers\api.dart:10:9 - prefer_typing_uninitialized_variables
+   info - An uninitialized variable should have an explicit type annotation - lib\helpers\api.dart:24:9 - prefer_typing_uninitialized_variables
+   info - An uninitialized variable should have an explicit type annotation - lib\helpers\api.dart:37:9 - prefer_typing_uninitialized_variables
+   info - An uninitialized variable should have an explicit type annotation - lib\helpers\api.dart:52:9 - prefer_typing_uninitialized_variables
+   info - Use interpolation to compose strings and values - lib\helpers\api_url.dart:4:36 - prefer_interpolation_to_compose_strings
+   info - Use interpolation to compose strings and values - lib\helpers\api_url.dart:5:31 - prefer_interpolation_to_compose_strings
+   info - Use interpolation to compose strings and values - lib\helpers\api_url.dart:6:36 - prefer_interpolation_to_compose_strings
+   info - Use interpolation to compose strings and values - lib\helpers\api_url.dart:7:38 - prefer_interpolation_to_compose_strings
+   info - Use interpolation to compose strings and values - lib\helpers\api_url.dart:10:12 - prefer_interpolation_to_compose_strings
+   info - Use interpolation to compose strings and values - lib\helpers\api_url.dart:14:12 - prefer_interpolation_to_compose_strings
+   info - Use interpolation to compose strings and values - lib\helpers\api_url.dart:18:12 - prefer_interpolation_to_compose_strings
+   info - An uninitialized field should have an explicit type annotation - lib\helpers\app_exception.dart:2:9 - prefer_typing_uninitialized_variables
+   info - An uninitialized field should have an explicit type annotation - lib\helpers\app_exception.dart:3:9 - prefer_typing_uninitialized_variables
+   info - Parameter 'key' could be a super parameter - lib\main.dart:11:9 - use_super_parameters
+   info - Invalid use of a private type in a public API - lib\main.dart:14:3 - library_private_types_in_public_api
+   info - Parameter 'key' could be a super parameter - lib\ui\login_page.dart:12:9 - use_super_parameters
+   info - Invalid use of a private type in a public API - lib\ui\login_page.dart:14:3 - library_private_types_in_public_api
+   info - Don't use 'BuildContext's across async gaps - lib\ui\login_page.dart:104:35 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps - lib\ui\login_page.dart:108:13 - use_build_context_synchronously
+   info - Don't invoke 'print' in production code - lib\ui\login_page.dart:115:7 - avoid_print
+   info - Don't use 'BuildContext's across async gaps - lib\ui\login_page.dart:117:11 - use_build_context_synchronously
+  error - Undefined name 'context' - lib\ui\login_page.dart:135:13 - undefined_identifier
+  error - Expected a method, getter, setter or operator declaration - lib\ui\login_page.dart:142:1 - expected_executable
+   info - Parameter 'key' could be a super parameter - lib\ui\produk_detail.dart:10:9 - use_super_parameters
+   info - Invalid use of a private type in a public API - lib\ui\produk_detail.dart:12:3 - library_private_types_in_public_api
+  error - The argument type 'int' can't be assigned to the parameter type 'String'.  - lib\ui\produk_detail.dart:75:51 - argument_type_not_assignable
+   info - Don't use 'BuildContext's across async gaps - lib\ui\produk_detail.dart:77:36 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps - lib\ui\produk_detail.dart:81:19 - use_build_context_synchronously
+   info - Parameter 'key' could be a super parameter - lib\ui\produk_form.dart:9:9 - use_super_parameters
+   info - Invalid use of a private type in a public API - lib\ui\produk_form.dart:11:3 - library_private_types_in_public_api
+   info - Don't use 'BuildContext's across async gaps - lib\ui\produk_form.dart:143:20 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps - lib\ui\produk_form.dart:147:11 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps - lib\ui\produk_form.dart:166:20 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps - lib\ui\produk_form.dart:170:11 - use_build_context_synchronously
+   info - Parameter 'key' could be a super parameter - lib\ui\produk_page.dart:11:9 - use_super_parameters
+   info - Invalid use of a private type in a public API - lib\ui\produk_page.dart:13:3 - library_private_types_in_public_api
+   info - Don't use 'BuildContext's across async gaps - lib\ui\produk_page.dart:45:36 - use_build_context_synchronously
+   info - Don't invoke 'print' in production code - lib\ui\produk_page.dart:58:34 - avoid_print
+   info - Parameter 'key' could be a super parameter - lib\ui\produk_page.dart:74:9 - use_super_parameters
+   info - Parameter 'key' could be a super parameter - lib\ui\produk_page.dart:90:9 - use_super_parameters
+   info - Parameter 'key' could be a super parameter - lib\ui\registrasi_page.dart:8:9 - use_super_parameters
+   info - Invalid use of a private type in a public API - lib\ui\registrasi_page.dart:11:3 - library_private_types_in_public_api
+   info - Don't use 'BuildContext's across async gaps - lib\ui\registrasi_page.dart:130:11 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps - lib\ui\registrasi_page.dart:140:11 - use_build_context_synchronously
+   info - Parameter 'key' could be a super parameter - lib\widget\success_dialog.dart:13:9 - use_super_parameters
+   info - Parameter 'key' could be a super parameter - lib\widget\warning_dialog.dart:13:9 - use_super_parameters
+

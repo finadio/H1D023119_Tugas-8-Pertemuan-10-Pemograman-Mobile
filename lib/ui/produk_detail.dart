@@ -1,57 +1,42 @@
-// ui/produk_detail.dart
 import 'package:flutter/material.dart';
+import 'package:tokokita/bloc/produk_bloc.dart';
 import 'package:tokokita/model/produk.dart';
 import 'package:tokokita/ui/produk_form.dart';
+import 'package:tokokita/ui/produk_page.dart';
+import 'package:tokokita/widget/warning_dialog.dart';
 
 class ProdukDetail extends StatefulWidget {
   final Produk? produk;
-  final VoidCallback onDelete;
-  final Function(Produk) onUpdate;
-
-  const ProdukDetail({
-    Key? key,
-    this.produk,
-    required this.onDelete,
-    required this.onUpdate,
-  }) : super(key: key);
-
+  const ProdukDetail({super.key, this.produk});
   @override
-  _ProdukDetailState createState() => _ProdukDetailState();
+  State<ProdukDetail> createState() => _ProdukDetailState();
 }
 
 class _ProdukDetailState extends State<ProdukDetail> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Detail Produk Nana")),
+      appBar: AppBar(
+        // MODIFIKASI: Menambahkan nama Nana
+        title: const Text("Detail Produk Nana"),
+      ),
       body: Center(
-        child: Card(
-          elevation: 4,
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-          child: Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Text(
-                  "Kode : ${widget.produk!.kodeProduk}",
-                  style: const TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
-                ),
-                const SizedBox(height: 10),
-                Text(
-                  "Nama : ${widget.produk!.namaProduk}",
-                  style: const TextStyle(fontSize: 18.0),
-                ),
-                const SizedBox(height: 10),
-                Text(
-                  "Harga : Rp. ${widget.produk!.hargaProduk.toString()}",
-                  style: const TextStyle(fontSize: 18.0, color: Colors.green),
-                ),
-                const SizedBox(height: 24),
-                _tombolHapusEdit(),
-              ],
+        child: Column(
+          children: [
+            Text(
+              "Kode : ${widget.produk!.kodeProduk}",
+              style: const TextStyle(fontSize: 20.0),
             ),
-          ),
+            Text(
+              "Nama : ${widget.produk!.namaProduk}",
+              style: const TextStyle(fontSize: 18.0),
+            ),
+            Text(
+              "Harga : Rp. ${widget.produk!.hargaProduk.toString()}",
+              style: const TextStyle(fontSize: 18.0),
+            ),
+            _tombolHapusEdit(),
+          ],
         ),
       ),
     );
@@ -61,38 +46,19 @@ class _ProdukDetailState extends State<ProdukDetail> {
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: [
-        ElevatedButton.icon(
-          icon: const Icon(Icons.edit, size: 18),
-          label: const Text("EDIT"),
-          style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.blue,
-            foregroundColor: Colors.white,
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-          ),
-          onPressed: () async {
-            final result = await Navigator.push(
+        OutlinedButton(
+          child: const Text("EDIT"),
+          onPressed: () {
+            Navigator.push(
               context,
               MaterialPageRoute(
                 builder: (context) => ProdukForm(produk: widget.produk!),
               ),
             );
-            if (result != null) {
-              widget.onUpdate(result);
-              Navigator.pop(context);
-            }
           },
         ),
-        const SizedBox(width: 12),
-        ElevatedButton.icon(
-          icon: const Icon(Icons.delete, size: 18),
-          label: const Text("DELETE"),
-          style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.red,
-            foregroundColor: Colors.white,
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-          ),
+        OutlinedButton(
+          child: const Text("DELETE"),
           onPressed: () => confirmHapus(),
         ),
       ],
@@ -100,25 +66,33 @@ class _ProdukDetailState extends State<ProdukDetail> {
   }
 
   void confirmHapus() {
-    showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        content: const Text("Yakin ingin menghapus data ini?"),
-        actions: [
-          OutlinedButton(
-            child: const Text("Ya"),
-            onPressed: () {
-              widget.onDelete();
-              Navigator.pop(context);
-              Navigator.pop(context);
-            },
-          ),
-          OutlinedButton(
-            child: const Text("Batal"),
-            onPressed: () => Navigator.pop(context),
-          ),
-        ],
-      ),
+    AlertDialog alertDialog = AlertDialog(
+      content: const Text("Yakin ingin menghapus data ini?"),
+      actions: [
+        OutlinedButton(
+          child: const Text("Ya"),
+          onPressed: () {
+            ProdukBloc.deleteProduk(id: widget.produk!.id!).then(
+                (value) => {
+                      if (mounted)
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => const ProdukPage()))
+                    }, onError: (error) {
+              if (!mounted) return;
+              showDialog(
+                  context: context,
+                  builder: (BuildContext context) => const WarningDialog(
+                        description: "Hapus data gagal, silahkan coba lagi",
+                      ));
+            });
+          },
+        ),
+        OutlinedButton(
+          child: const Text("Batal"),
+          onPressed: () => Navigator.pop(context),
+        ),
+      ],
     );
+    showDialog(builder: (context) => alertDialog, context: context);
   }
 }
